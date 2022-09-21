@@ -4,7 +4,7 @@
   "description": "The server for my little idle farm game.",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/server.ts --bundle --platform=node --outfile=dist/server.js",
+    "build": "esbuild src/server.ts --bundle --sourcemap --platform=node --outfile=dist/server.js",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
