@@ -23,3 +23,14 @@ world.subscribe((worldState) => {
 io.on("connection", () => {
   console.debug("User connected");
 });
+
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received, closing all connections");
+  io.close((err) => {
+    if (err === undefined) {
+      console.log("Server closed");
+    } else {
+      console.error("Unable to close process:", err.message);
+    }
+  })
+})
