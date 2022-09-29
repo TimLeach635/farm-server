@@ -1,7 +1,12 @@
+import express from "express";
+import { createServer } from "http";
 import { Server } from "socket.io";
 import { initialise } from "farm";
 
-const io = new Server(1995, {
+const app = express();
+const server = createServer(app);
+
+const io = new Server(server, {
   cors: {
     origin: "*",
   },
@@ -31,3 +36,5 @@ process.on("SIGTERM", () => {
     }
   })
 })
+
+server.listen(1995);
